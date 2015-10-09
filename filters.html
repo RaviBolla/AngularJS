@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="namesCtrl" data-ng-init="myMessage='Howe are you?'">
+
+    <p> {{myMessage|uppercase}} </p>
+    <p> {{myMessage|lowercase}} </p>
+
+    <input type="number" ng-model="quantity">
+    <input type="number" ng-model="price">
+
+    <p>Total = {{ (quantity * price) | currency }}</p>
+
+    <ul>
+        <li ng-repeat="x in names | orderBy:'country'">
+            {{ (x.name|uppercase) + ', ' + (x.country|lowercase) }}
+        </li>
+    </ul>
+
+</div>
+
+<script src="namesController.js"></script>
+
+</body>
+</html>
